@@ -49,7 +49,7 @@ public class WebController {
 		// You can replace this with other string,
 		// and run the application locally to check your changes
 		// with the URL: http://localhost:8080/
-		return "OK";
+		return "Hello";
 	}
 
 	/**
@@ -69,6 +69,7 @@ public class WebController {
 		return user;
 	}
 
+
 	/**
 	 * This is an example of sending an HTTP POST request to
 	 * update a user's information (or create the user if not
@@ -85,17 +86,20 @@ public class WebController {
 	 * @param id
 	 * @param name
 	 * @param major
+	 * @param minor
 	 * @return
 	 */
 	@RequestMapping(value = "/cs580/user/{userId}", method = RequestMethod.POST)
 	User updateUser(
 			@PathVariable("userId") String id,
 			@RequestParam("name") String name,
-			@RequestParam(value = "major", required = false) String major) {
+			@RequestParam(value = "major", required = false) String major,
+			@RequestParam(value = "minor", required = false) String minor){
 		User user = new User();
 		user.setId(id);
 		user.setMajor(major);
 		user.setName(name);
+		user.setMinor(minor);
 		userManager.updateUser(user);
 		return user;
 	}

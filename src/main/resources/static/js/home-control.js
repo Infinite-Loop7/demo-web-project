@@ -38,7 +38,8 @@ function addUser() {
 	var userId = $('#input_id').val();
 	var userName = $('#input_name').val();
 	var userMajor = $('#input_major').val();
-
+	var userMinor = $('#input_minor').val();
+	
 	if (userId) {
 		$.ajax(
 				{
@@ -46,7 +47,8 @@ function addUser() {
 					url  : "/cs580/user/" + userId,
 					data : {
 						"name" : userName,
-						"major" : userMajor
+						"major" : userMajor,
+						"minor" : userMinor,
 					},
 					success : function(result) {
 						location.reload();
@@ -73,6 +75,7 @@ function getUser(userId) {
 						$('#result_id').text(result.id);
 						$('#result_name').text(result.name);
 						$('#result_major').text(result.major);
+						$('#result_minor').text(result.minor);
 					},
 					error: function (jqXHR, exception) {
 						alert("Failed to get the user.");

@@ -14,6 +14,8 @@ public class User {
     private String name;
     /** The unique user Id */
     private String major;
+    /** The unique user Id */
+    private String minor;
     /** The timestamp when the user is being created */
     private String creationTime = new Date(System.currentTimeMillis()).toString();
 
@@ -39,6 +41,14 @@ public class User {
 
 	public void setMajor(String major) {
 		this.major = major;
+	}
+	
+	public String getMinor() {
+		return minor;
+	}
+
+	public void setMinor(String minor) {
+		this.minor = minor;
 	}
 
 	public String getCreationTime() {

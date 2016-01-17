@@ -73,7 +73,7 @@ public class FSUserManager implements UserManager {
 		UserMap userMap = getUserMap();
 		return userMap.get(userId);
 	}
-
+	
 	@Override
 	public void updateUser(User user) {
 		UserMap userMap = getUserMap();
