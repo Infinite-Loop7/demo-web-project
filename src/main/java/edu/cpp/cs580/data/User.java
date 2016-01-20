@@ -16,6 +16,7 @@ public class User {
     private String major;
     /** The unique user Id */
     private String minor;
+    private String email;
     /** The timestamp when the user is being created */
     private String creationTime = new Date(System.currentTimeMillis()).toString();
 
@@ -51,6 +52,14 @@ public class User {
 		this.minor = minor;
 	}
 
+	public String getEmail(){
+		return email;
+	}
+	
+	public void setEmail(String email){
+		this.email = email;
+	}
+	
 	public String getCreationTime() {
 		return creationTime;
 	}

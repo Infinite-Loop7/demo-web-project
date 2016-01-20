@@ -39,6 +39,7 @@ function addUser() {
 	var userName = $('#input_name').val();
 	var userMajor = $('#input_major').val();
 	var userMinor = $('#input_minor').val();
+	var userEmail = $('#input_email').val();
 	
 	if (userId) {
 		$.ajax(
@@ -49,6 +50,7 @@ function addUser() {
 						"name" : userName,
 						"major" : userMajor,
 						"minor" : userMinor,
+						"email" : userEmail,
 					},
 					success : function(result) {
 						location.reload();
@@ -76,6 +78,7 @@ function getUser(userId) {
 						$('#result_name').text(result.name);
 						$('#result_major').text(result.major);
 						$('#result_minor').text(result.minor);
+						$('#result_email').text(result.email);
 					},
 					error: function (jqXHR, exception) {
 						alert("Failed to get the user.");
