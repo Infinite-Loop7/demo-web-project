@@ -14,6 +14,7 @@ import edu.cpp.cs580.App;
 import edu.cpp.cs580.data.User;
 import edu.cpp.cs580.data.provider.UserManager;
 
+import org.joda.time.*;
 
 /**
  * This is the controller used by Spring framework.
@@ -51,7 +52,29 @@ public class WebController {
 		// with the URL: http://localhost:8080/
 		return "Hello";
 	}
-
+	
+	/**
+	 * This is a simple example of how the JodaTime works.
+	 * It returns the current time and date.
+	 * To try it, run the web application locally,
+	 * in your web browser, type the link:
+	 * 	http://localhost:8080/cs580/time
+	 */
+	@RequestMapping(value = "/cs580/time", method = RequestMethod.GET)
+	String time() {
+		// You can replace this with other string,
+		// and run the application locally to check your changes
+		// with the URL: http://localhost:8080/
+		
+		LocalTime localTime = new LocalTime();
+        LocalDate localDate = new LocalDate();
+      	String time = localTime.toString();
+		
+		String date = localDate.toString();
+		
+		return "Right now the time is: " + time + " and the date is: "+ date +" using Joda Time";
+	}
+	
 	/**
 	 * This is a simple example of how to use a data manager
 	 * to retrieve the data and return it as an HTTP response.
