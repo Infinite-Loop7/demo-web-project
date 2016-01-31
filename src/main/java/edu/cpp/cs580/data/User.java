@@ -2,11 +2,13 @@ package edu.cpp.cs580.data;
 
 import java.util.Date;
 
+import com.google.common.collect.ComparisonChain;
+
 
 /**
  * The basic user object.
  */
-public class User {
+public class User implements Comparable<User>{
 
 	/** The unique user Id */
     private String id;
@@ -67,4 +69,11 @@ public class User {
 	public void setCreationTime(String creationTime) {
 		this.creationTime = creationTime;
 	}
+
+	public int compareTo(User otherUser) {
+		// TODO Auto-generated method stub
+		return ComparisonChain.start().compare(id, otherUser.id).result();
+	}
+	
+	
 }

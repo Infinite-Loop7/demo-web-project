@@ -17,6 +17,13 @@ cs580App.controller('UserCtrl', function ($scope, $http) {
 	  		$scope.founduser = data;
 	  	});
   }
+ 
+    $scope.sortUsers = function() {
+	  $http.get("/cs580/user/sort")
+	  	.success(function(data){
+	  		$scope.users = data;
+	  	});
+  }
 
   $scope.addUser = function() {
 	  $http.post("cs580/user/" + $scope.new_id + "?name=" + $scope.new_name + "&major=" + $scope.new_major)

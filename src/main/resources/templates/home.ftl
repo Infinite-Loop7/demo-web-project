@@ -25,6 +25,7 @@
     <div>
         <div>
             <label>User List</label>
+            <button onclick="sortUsers()">SortById</button>
             <table border="1">            
                 <tr>
                     <td>ID</td>

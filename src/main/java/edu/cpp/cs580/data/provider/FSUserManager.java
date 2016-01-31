@@ -3,9 +3,12 @@ package edu.cpp.cs580.data.provider;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.base.Function;
+import com.google.common.collect.Ordering;
 
 import edu.cpp.cs580.data.User;
 import edu.cpp.cs580.data.UserMap;
@@ -93,5 +96,22 @@ public class FSUserManager implements UserManager {
 		UserMap userMap = getUserMap();
 		return new ArrayList<User>(userMap.values());
 	}
+	
+	static Function<User, String> sorter = new Function<User, String>() {
+		   public String apply(User user) {
+		      return user.getId();
+		   }
+		};
+	
+	@Override
+	public List<User> sortAllUsers() {
+		UserMap userMap = getUserMap();
+		Collection<User> users = userMap.values();
+
+		Ordering<User> sortById = Ordering.natural().nullsFirst().onResultOf(sorter); 
+
+		return sortById.sortedCopy(users); 
+	}
+
 
 }

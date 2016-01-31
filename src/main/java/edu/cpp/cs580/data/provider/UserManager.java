@@ -44,4 +44,12 @@ public interface UserManager {
 	 */
 	public List<User> listAllUsers();
 
+	
+	/**
+	 * Sorts all the current users in the storage.
+	 *
+	 * @return
+	 */
+	public List<User> sortAllUsers();
+	
 }

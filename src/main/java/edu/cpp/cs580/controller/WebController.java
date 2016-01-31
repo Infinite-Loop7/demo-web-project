@@ -128,6 +128,18 @@ public class WebController {
 		return userManager.listAllUsers();
 	}
 
+	
+	/**
+	 * This API sorts the users by id
+	 *
+	 * @return
+	 */
+	@RequestMapping(value = "/cs580/user/sort", method = RequestMethod.GET)
+	List<User> sortAllUsers() {
+		return userManager.sortAllUsers();
+	}
+	
+	
 	/*********** Web UI Test Utility **********/
 	/**
 	 * This method provide a simple web UI for you to test the different
