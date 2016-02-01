@@ -1,20 +1,24 @@
 package edu.cpp.cs580.controller;
 
+import org.apache.commons.math3.primes.Primes;
+
 public class Greeting {
 
-    private long id;
+    private int id;
+    private boolean prime;
     private String content;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
+        this.prime = Primes.isPrime(id);
     }
 
     public String getContent() {
-        return content;
+        return String.valueOf(prime);
     }
 
     public void setContent(String content) {
