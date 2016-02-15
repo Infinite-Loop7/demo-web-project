@@ -46,7 +46,7 @@ public class WebController {
 	 * 	http://localhost:8080/cs580/ping
 	 */
 	@RequestMapping(value = "/cs580/ping", method = RequestMethod.GET)
-	String healthCheck() {
+	public String healthCheck() {
 		// You can replace this with other string,
 		// and run the application locally to check your changes
 		// with the URL: http://localhost:8080/
@@ -147,6 +147,7 @@ public class WebController {
 	 * @return
 	 */
 	@RequestMapping(value = "/cs580/users/list", method = RequestMethod.GET)
+	public
 	List<User> listAllUsers() {
 		return userManager.listAllUsers();
 	}
@@ -158,7 +159,7 @@ public class WebController {
 	 * @return
 	 */
 	@RequestMapping(value = "/cs580/user/sort", method = RequestMethod.GET)
-	List<User> sortAllUsers() {
+	public List<User> sortAllUsers() {
 		return userManager.sortAllUsers();
 	}
 	
@@ -174,5 +175,6 @@ public class WebController {
 		modelAndView.addObject("users", listAllUsers());
 		return modelAndView;
 	}
+
 
 }
